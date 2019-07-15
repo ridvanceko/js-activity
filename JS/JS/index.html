@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jiggle Into JavaScript</title>
+    <!--<script src="JavaScript/script.js"></script>-->
+    
+</head>
+<body>
+  <style>
+
+    .mouse{
+      color: yellow;
+    }
+
+    #time {
+      font-family: Verdana, sans-serif;
+      color: purple;
+    }
+  
+  </style>
+
+ 
+  
+  <p>Press the buttons to move the box!</p>
+
+    <div id="box" style="height:150px; width:150px; background-color:orange; margin:25px;"></div>
+
+
+
+    <button id="shrinkBtn">Shrink</button>
+    <button id="growBtn">Grow</button>
+    <button id="resetBtn">Reset</button>
+
+
+      <div  class="mouse"  onmouseover="mOver(this)" onmouseout="mOut(this)" 
+    style="background-color: green; width:120px;height:40px;padding:40px;margin:40px;">
+    Mouse Over Me</div>
+
+    <p>Click the button to display the time.</p>
+
+    <button id="what-time" onclick="datenow()">What is the time?</button>
+    <br>
+    <label id="date">Full Date</label>
+    <br>
+    <label id="date2">Date</label>
+    
+
+    <script>
+ document.getElementById("shrinkBtn").addEventListener("click", function(){
+  document.getElementById("box").style.height = "25px";
+  document.getElementById("box").style.backgroundColor = "blue";
+  document.getElementById("box").style.width = "60px";
+
+});
+
+document.getElementById("growBtn").addEventListener("click", function(){
+
+  document.getElementById("box").style.height = "250px";
+  document.getElementById("box").style.backgroundColor = "red";
+
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){
+
+  document.getElementById("box").style.height = "150px";
+  document.getElementById("box").style.marginTop = "120px" ;
+
+});
+
+function mOver(obj) {
+  obj.innerHTML = "Thank You"
+}
+
+function mOut(obj) {
+  obj.innerHTML = "Mouse Over Me"
+}
+
+function datenow(obj) {
+  var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+
+var yyyy = today.getFullYear();
+if (dd < 10) {
+  dd = '0' + dd;
+} 
+if (mm < 10) {
+  mm = '0' + mm;
+} 
+var today = dd + '/' + mm + '/' + yyyy;
+
+  document.getElementById("date").innerHTML = Date();
+  document.getElementById("date2").innerHTML = today;
+}
+
+
+
+    </script>
+
+</body>
+</html>
